@@ -1,0 +1,41 @@
+* {
+  margin: 0 auto;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+
+  &::after {
+    content: "";
+    width: $article-width;
+  }
+
+  &-article {
+    max-width: $article-width;
+    line-height: $article-line-height;
+    margin-bottom: $margin-sm;
+  }
+}
+
+h1 {
+  font-size: $font-size-md;
+  text-align: center;
+}
+
+h2,
+h3 {
+  font-size: $font-size-sm;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+img {
+  max-width: $img-width;
+  height: $img-height;
+}
