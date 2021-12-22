@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Nav from "../Components/Nav";
+import Search from "../Components/Search";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -33,20 +35,24 @@ const Homepage: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      {news?.articles.map((article) => (
-        <div className="container-article">
-          <div key={article.title}>
-            <a href={article.url} target="_blank">
-              <img src={article.urlToImage} />
-            </a>
-            <h1>{article.title}</h1>
-            <h2>Author: {article.author}</h2>
-            <h3>Published at: {article.publishedAt}</h3>
-            <p>{article.description}</p>
+    <div>
+      <Nav />
+      <Search />
+      <div className="container">
+        {news?.articles.map((article) => (
+          <div className="container-article">
+            <div key={article.title}>
+              <a href={article.url} target="_blank">
+                <img src={article.urlToImage} />
+              </a>
+              <h1>{article.title}</h1>
+              <h2>Author: {article.author}</h2>
+              <h3>Published at: {article.publishedAt}</h3>
+              <p>{article.description}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

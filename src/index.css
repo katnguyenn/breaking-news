@@ -38,4 +38,18 @@ img {
   height: 25rem;
 }
 
+.icons {
+  text-align: center;
+}
+
+.fa {
+  font-size: 36px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+hr {
+  margin-bottom: 2rem;
+}
+
 /*# sourceMappingURL=index.css.map */
