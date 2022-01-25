@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../Components/Nav";
 import Search from "../Components/Search";
+import { IArticles } from "../Types/IArticles";
+
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const Homepage: React.FC = () => {
-  interface Articles {
-    articles: any[];
-    title: string;
-    author: string;
-    publishedAt: string;
-    description: string;
-  }
+const noImage = require("../assets/noimage.png")
 
-  const [news, setNews] = useState<Articles>();
+const Homepage: React.FC = () => {
+  const [news, setNews] = useState<IArticles>();
 
   useEffect(() => {
     fetchNews();
@@ -26,6 +22,7 @@ const Homepage: React.FC = () => {
       response
         .json()
         .then((res) => {
+          console.log(res)
           setNews(res);
         })
         .catch((error) => {
@@ -43,7 +40,7 @@ const Homepage: React.FC = () => {
           <div className="container-article">
             <div key={article.title}>
               <a href={article.url} target="_blank">
-                <img src={article.urlToImage} />
+                <img src={article.urlToImage ? article.urlToImage : noImage } />
               </a>
               <h1>{article.title}</h1>
               <h2>Author: {article.author}</h2>
